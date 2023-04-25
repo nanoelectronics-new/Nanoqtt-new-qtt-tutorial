@@ -449,3 +449,52 @@ Measurement
 
      #diff_dir='X' ?
    
+   
+   
+Useful function
+---------------
+
+**Scaled**
+If you use a division/amplifer card
+
+.. code-block:: python
+   
+   Vdot_scaled = ScaledParameter(DAC.dac1, division = 100)  #10mV/V
+
+   station.add_component(Vdot_scaled)
+   
+**Sweep several gates**
+
+.. code-block:: python
+
+   #Creating a parameter for sweeping multiple DAC channels together
+   #Creating a parameter for sweeping multiple DAC channels together
+   class Sweep_multiple_gates(qcodes.Parameter):
+       def __init__(self, name, gates_to_sweep=None):
+           # only name is required
+           super().__init__(name, label='multiple_gates',
+                            #vals=qc.validators.Ints(min_value=0),
+                            docstring='sweeping_multiple_gates_together')
+           self.gates_to_sweep = gates_to_sweep
+           if self.gates_to_sweep == None:
+               raise Exception('Gates_to_sweep not provided')
+       # you must provide a get method, a set method, or both
+       def get_raw(self):
+           return None
+
+       def set_raw(self, value):
+           for gate in self.gates_to_sweep:
+               if gate==gates.CSL_BL:
+                   gate.set(value+260.0)
+               else:
+                   gate.set(value)
+
+          def set_raw(self, value):
+              for gate in self.gates_to_sweep:
+                  gate.set(value)
+
+      barrier = Sweep_multiple_gates('barrier',gates_to_sweep=[station.gates.CSL_BR,station.gates.CSL_BL])
+      barrier.set(500.0)
+      
+  
+      
