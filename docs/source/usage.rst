@@ -447,7 +447,7 @@ Measurement
       data = qtt.measurements.scans.scan2D(station, scanjob, liveplotwindow=None, diff_dir=None, location = None, update_period=1)
       plot_nanoqtt(data, scanjob)
 
-     #diff_dir='X' ?
+     #diff_dir='x' 
    
    
    
