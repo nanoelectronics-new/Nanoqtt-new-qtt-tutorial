@@ -50,8 +50,8 @@ If you use a division/amplifer card
               for gate in self.gates_to_sweep:
                   gate.set(value)
 
-      barrier = Sweep_multiple_gates('barrier',gates_to_sweep=[station.gates.CSL_BR,station.gates.CSL_BL])
-      barrier.set(500.0)
+     barrier = Sweep_multiple_gates('barrier',gates_to_sweep=[station.gates.CSL_BR,station.gates.CSL_BL])
+     barrier.set(500.0)
       
       
 **UHF**
