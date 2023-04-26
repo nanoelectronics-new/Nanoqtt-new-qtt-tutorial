@@ -98,6 +98,7 @@ Instruments
    DAC.parameters['dac16'].vals._max_value = 4000.0
        
 .. code-block:: python
+
     #give meaninful names to the gates
     gates = VirtualDAC('gates', 
                 instruments = [DAC], 
