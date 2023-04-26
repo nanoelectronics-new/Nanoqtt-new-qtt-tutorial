@@ -99,11 +99,13 @@ Useful commands
 **For the DAC**
 
 .. code-block:: python
+
    DAC.set_dacs_zero()
    
 **For the DMM**
 
 .. code-block:: python
+
    dmm_dot.NPLC(0.2)   #dmm_dot = Keysight_34465A('dmm_dot', 'USB0::10893::257::MY54502785::0::INSTR')
    dmm_dot.range(10)
    
@@ -111,6 +113,7 @@ Useful commands
 **For the UHF**
 
 .. code-block:: python
+
     station.digitizer.demod4_R   #amplitude
     station.digitizer.demod4_phi  #phase
     station.digitizer.oscillator1_freq  #frequency
