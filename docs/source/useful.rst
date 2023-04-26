@@ -7,9 +7,6 @@ Useful stuff
 Useful functions
 ------------
 
-Useful function
----------------
-
 **Scaled**
 If you use a division/amplifer card
 
