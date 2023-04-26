@@ -100,7 +100,9 @@ Useful commands
 
 .. code-block:: python
 
-   DAC.set_dacs_zero()
+   DAC.set_dacs_zero()  #Put everything to 0
+   print(station.gates.get_all(verbose=1))  #print all the values of the gates
+
    
 **For the DMM**
 
