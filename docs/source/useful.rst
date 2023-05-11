@@ -122,4 +122,58 @@ Useful commands
     station.digitizer.signal_output1_amplitude
    
   
-      
+Read the data
+----------
+First import function the load the data and other that can be useful 
+
+.. code-block:: python
+   from qtt.data import plot_dataset
+
+   from qtt.data import load_dataset
+   
+Then load your data, for example 
+
+.. code-block:: python
+   dataset= load_dataset(location=r'K:\Measurement\Yona\11044_S08\20220224_Bottom\20220224_Bottom\2023-03-02\13-49-16_qtt_CD_CSL')
+   
+If you run
+
+.. code-block:: python
+   dataset
+
+You will see the name of the axis and the size of the arrays
+Then to access the data you can do 
+.. code-block:: python
+
+   y = dataset_diamonds.arrays['CSL_P']
+   x = dataset_diamonds.arrays['V_dot_scaled']
+   z = dataset_diamonds.arrays['dmm_curr_dot']
+   plt.figure()
+   plt.pcolor(x, y, z)
+   
+ 
+**Browse**
+ 
+To have a GUI for easy browsing of our saved datasets.
+ 
+.. code-block:: python
+   %gui qt
+   import qtt
+   #from qtt.data import load_example_dataset
+   import qcodes
+   #from qcodes.plots.qcmatplotlib import MatPlot
+   #from qcodes.plots.pyqtgraph import QtPlot
+   #from qcodes.data.data_set import DataSet
+
+   # Set data directory
+   path_save = r'K:\\Measurement\\Josip\\Iso-pur_wafer_10820_piece_9\\'
+   datadir = os.path.join(path_save, '')
+   DataSet.default_io = qcodes.data.io.DiskIO(datadir) 
+   
+   logviewer = qtt.gui.dataviewer.DataViewer(datadir, verbose=0)
+   
+
+
+
+
+
