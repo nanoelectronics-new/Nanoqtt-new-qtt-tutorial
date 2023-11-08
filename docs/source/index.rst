@@ -15,7 +15,7 @@ Contents
 
 .. toctree::
 
-   usage
+   Nanoqtt_start
    api
    useful
    UHFLI
