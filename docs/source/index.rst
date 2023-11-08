@@ -15,6 +15,8 @@ Contents
 
 .. toctree::
 
+   Qcodes_start
+   Measurement
    Nanoqtt_start
    api
    useful
