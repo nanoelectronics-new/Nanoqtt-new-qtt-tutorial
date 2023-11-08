@@ -1,4 +1,4 @@
-Start a jupyter notebook
+Nanoqtt-Start a jupyter notebook
 =====
 
 .. _installation:
