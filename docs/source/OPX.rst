@@ -1,38 +1,74 @@
-Data
+OPX
 =====
 
 .. _installation:
 
 
-How to get access to your data 
+Documentation
 ------------
 
-Import 
+Qua documentation: https://docs.quantum-machines.co/1.1.5/
+
+Configuration: https://docs.quantum-machines.co/1.1.5/assets/qua_config.html
+
+QM github: https://github.com/qua-platform
+
+Qcodes driver: https://github.com/qua-platform/py-qua-tools/tree/main/qualang_tools/external_frameworks/qcodes
+
+
+Connexion
+------------
 
 .. code-block:: python
 
-   import os
-   import numpy as np
-   import matplotlib.pyplot as plt
-   import qcodes as qc
-   from qcodes import load_by_run_spec, ScaledParameter
-   from qcodes import Station, initialise_or_create_database_at, \
-       load_or_create_experiment, Measurement
-   from qcodes.dataset.plotting import plot_dataset, plot_by_id
-   qc.config.plotting['default_color_map']='Blues_r'
-   qc.logger.start_all_logging()
+   from qm.qua import *
+   from qualang_tools.external_frameworks.qcodes.opx_driver import OPX
+   from configuration import *
+   opx_instrument = OPX(config, name="OPX_demo", host='10.21.42.178')
+   #station.add_component(opx_instrument) # if you want to use it with qcodes
+   #opx_instrument.readout_pulse_length(config['pulses']['measure']['length']) 
 
-You need to load the dataset that you used for your measurements
+Programm
+------------
+**Example execution of a program**
 
-.. code-block:: python
+.. code-block:: python  
 
-   sample_name = 'W11168_S23_top2'   
-   path = os.getcwd()
-   path=os.path.join(path, sample_name)
-   db_file_path = os.path.join(path, sample_name + '.db') #or put directly the path 
-     
-   initialise_or_create_database_at(db_file_path)
+   qm=opx_instrument.qm # Open a quantum machine with a given configuration ready to execute a program
+   job = qm.execute(prog)
+
+   #if your programm has a infinite loop: stop the program after x times
+   time.sleep(30)  # The program will run for 30 seconds
+   job.halt()
+
+**Example of a program**
+
+.. code-block:: python 
+
+      gate1='P1'  #P1 and P2 are elements of the OPX defined in the config file 
+      gate2='P2'
       
+      with program() as prog:
+          with infinite_loop_():
+              for i in range(0,nb_period):
+                  play('jump'*amp(1),gate1,duration=(period_pulse/2)//4)
+                  play('jump'*amp(1),gate2,duration=(period_pulse/2)//4)
+                  play('jump'*amp(-1),gate1,duration=(period_pulse/2)//4)
+                  play('jump'*amp(-1),gate2,duration=(period_pulse/2)//4)
+
+      opx_instrument.qua_program = prog
+
+**Example of a simulation**
+
+.. code-block:: python 
+
+   opx_instrument.qua_program = prog
+
+   # Simulate program
+   opx_instrument.sim_time(20_000)
+   opx_instrument.simulate()
+   opx_instrument.plot_simulated_wf()
+
       
 Plot
 ----------------
