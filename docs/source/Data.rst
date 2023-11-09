@@ -10,6 +10,7 @@ How to get access to your data
 Import 
 
 .. code-block:: python
+
    import os
    import numpy as np
    import matplotlib.pyplot as plt
