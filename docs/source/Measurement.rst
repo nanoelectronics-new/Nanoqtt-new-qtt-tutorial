@@ -73,7 +73,8 @@ Find a Coulomb peak
 
 Then we measure the current for 5 min in the background ( when the current is 0 or better at the top of the peak where the slope is 0). Then we measure the current on the maximum slope of the peak.
 
-**Background 0A**
+Background 0A
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -90,10 +91,26 @@ Then we measure the current for 5 min in the background ( when the current is 0 
   exp = load_or_create_experiment(experiment_name = 'charge_noise', sample_name = sample_name)
   data=do0d(dmm_dot.timetrace, write_period=0.1, do_plot=True,measurement_name='background')
 
+.. image::  source/image/ noise_bg.PNG
+   :width: 200px
+   :height: 100px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
 
-**Top of the peak**
+.. image::  source/image/ noise_trace.PNG
+   :width: 200px
+   :height: 100px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
 
-The first option is to repeat the background 0A measurement but fix the plunger to be on the top of the peak or you can first measure the peak then start a measurement that will stop when the maximum is reach 
+
+Background top of the peak
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The first option is to repeat the background 0A measurement but fix the plunger to be on the top of the peak. 
+Or you can first measure the peak then start a measurement that will stop when the maximum is reach 
 
 .. code-block:: python
 
@@ -103,7 +120,7 @@ The first option is to repeat the background 0A measurement but fix the plunger 
   BR(1270.0)
   B45(1200.0)
   
-  do1d(P5,520,570,200,0.0,dmm_dot_curr,show_progress=True,do_plot=True,exp=exp,measurement_name='P4_CO',)
+  do1d(P5,520,570,200,0.0,dmm_dot_curr,show_progress=True,do_plot=True,exp=exp,measurement_name='P5_CO',)
 
 .. code-block:: python
   
@@ -129,6 +146,13 @@ The first option is to repeat the background 0A measurement but fix the plunger 
   dataset = datasaver.dataset
   axs, cbs = plot_dataset(dataset)
 
+.. image::  source/image/ noise_top.PNG
+ :width: 200px
+ :height: 100px
+ :scale: 50 %
+ :alt: alternate text
+ :align: right
+
 Once P is fixed, we can do the noise measurement
 
 .. code-block:: python
@@ -143,7 +167,8 @@ Once P is fixed, we can do the noise measurement
   exp = load_or_create_experiment(experiment_name = 'charge_noise', sample_name = sample_name)
   data=do0d(dmm_dot.timetrace, write_period=0.1, do_plot=True,measurement_name='peak') 
 
-**On the slope**
+On the slope
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One option is the do the same as being on the top of the peak but instead of findind the maximum of the current, you look for the maximum slope. 
 For getting the derivative you can use a gaussian fit (probably other methods can work).
@@ -183,6 +208,13 @@ Find the max of the derivative
   plt.legend(loc='best')
   print(max_slop)
 
+.. image::  source/image/ noise_deriv.PNG
+   :width: 200px
+   :height: 100px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+
 Go on the max of the derivative
 
 .. code-block:: python
@@ -202,6 +234,14 @@ Go on the max of the derivative
   print(P5.get())
   dataset = datasaver.dataset
   axs, cbs = plot_dataset(dataset)
+
+.. image::  source/image/ noise_slope.PNG
+   :width: 200px
+   :height: 100px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+
 
 Do the noise measurement
 
@@ -237,6 +277,12 @@ Another method is to use a linear fit on a small part of the peak
   
   print(m) #is the slope 
 
+.. image::  source/image/ noise_linear.PNG
+   :width: 200px
+   :height: 100px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
 
 Do the measurement
 
@@ -259,7 +305,8 @@ Do the measurement
   data=do0d(dmm.timetrace, write_period=0.1, do_plot=True,measurement_name='timetrace_peak')
 
 
-**Analysis**
+Analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need the slope and the lever arm.
 
@@ -282,6 +329,13 @@ For the power spectral density:
   plt.xlabel('$f$ [Hz]')
   plt.ylabel('$S_\mathrm{I}$ [A$^2$/Hz]')
 
+.. image::  source/image/ noise_psd.PNG
+   :width: 200px
+   :height: 100px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+
 Noise:
 
 .. code-block:: python
@@ -292,6 +346,13 @@ Noise:
   plt.grid(True, which="both")
   plt.xlabel('f [Hz]')
   plt.ylabel(r'$S_\mathrm{E}$ [eV$^2$/Hz]')
+
+.. image::  source/image/ noise_noise.PNG
+   :width: 200px
+   :height: 100px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
 
 Fit:
 
@@ -316,7 +377,13 @@ Fit:
            label="({0:.3f}*x**{1:.3f})".format(*popt))
   print(popt[1])
 
-     
+.. image::  source/image/ noise_fit.PNG
+   :width: 200px
+   :height: 100px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+   
 
   
       
