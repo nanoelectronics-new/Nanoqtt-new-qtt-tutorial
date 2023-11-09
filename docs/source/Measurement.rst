@@ -91,14 +91,14 @@ Background 0A
   exp = load_or_create_experiment(experiment_name = 'charge_noise', sample_name = sample_name)
   data=do0d(dmm_dot.timetrace, write_period=0.1, do_plot=True,measurement_name='background')
 
-.. image::  source/image/ noise_bg.PNG
+.. image::  image/noise_bg.PNG
    :width: 200px
    :height: 100px
    :scale: 50 %
    :alt: alternate text
    :align: right
 
-.. image::  source/image/ noise_trace.PNG
+.. image::  image/noise_trace.PNG
    :width: 200px
    :height: 100px
    :scale: 50 %
@@ -146,7 +146,7 @@ Or you can first measure the peak then start a measurement that will stop when t
   dataset = datasaver.dataset
   axs, cbs = plot_dataset(dataset)
 
-.. image::  source/image/ noise_top.PNG
+.. image:: image/noise_top.PNG
  :width: 200px
  :height: 100px
  :scale: 50 %
@@ -208,7 +208,7 @@ Find the max of the derivative
   plt.legend(loc='best')
   print(max_slop)
 
-.. image::  source/image/ noise_deriv.PNG
+.. image:: image/noise_deriv.PNG
    :width: 200px
    :height: 100px
    :scale: 50 %
@@ -235,7 +235,7 @@ Go on the max of the derivative
   dataset = datasaver.dataset
   axs, cbs = plot_dataset(dataset)
 
-.. image::  source/image/ noise_slope.PNG
+.. image:: image/noise_slope.PNG
    :width: 200px
    :height: 100px
    :scale: 50 %
@@ -277,7 +277,7 @@ Another method is to use a linear fit on a small part of the peak
   
   print(m) #is the slope 
 
-.. image::  source/image/ noise_linear.PNG
+.. image::  image/noise_linear.PNG
    :width: 200px
    :height: 100px
    :scale: 50 %
@@ -329,7 +329,7 @@ For the power spectral density:
   plt.xlabel('$f$ [Hz]')
   plt.ylabel('$S_\mathrm{I}$ [A$^2$/Hz]')
 
-.. image::  source/image/ noise_psd.PNG
+.. image:: image/noise_psd.PNG
    :width: 200px
    :height: 100px
    :scale: 50 %
@@ -347,7 +347,7 @@ Noise:
   plt.xlabel('f [Hz]')
   plt.ylabel(r'$S_\mathrm{E}$ [eV$^2$/Hz]')
 
-.. image::  source/image/ noise_noise.PNG
+.. image::  image/noise_noise.PNG
    :width: 200px
    :height: 100px
    :scale: 50 %
@@ -377,7 +377,7 @@ Fit:
            label="({0:.3f}*x**{1:.3f})".format(*popt))
   print(popt[1])
 
-.. image::  source/image/ noise_fit.PNG
+.. image::  image/noise_fit.PNG
    :width: 200px
    :height: 100px
    :scale: 50 %
