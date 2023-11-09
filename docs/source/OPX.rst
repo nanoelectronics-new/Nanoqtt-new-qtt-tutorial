@@ -71,11 +71,11 @@ Programm
 
 
 .. image:: image/ex_opx_simulation.PNG
-   :width: 100px
-   :height: 50px
-   :scale: 40 %
+   :width: 500px
+   :height: 250px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
       
 Qcodes measurement
