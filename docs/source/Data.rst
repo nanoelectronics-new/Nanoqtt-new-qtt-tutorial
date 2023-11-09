@@ -37,7 +37,8 @@ You need to load the dataset that you used for your measurements
 Plot
 ----------------
 
-**Derivative**
+Derivative
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -55,7 +56,8 @@ Plot
    plt.ylabel('Bias (mV)')
       
 
-**Patch**
+Patch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
