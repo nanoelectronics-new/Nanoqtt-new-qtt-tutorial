@@ -11,28 +11,36 @@ Basic measurements
 .. code-block:: python
 
   exp = load_or_create_experiment(experiment_name = experiment_name, sample_name = sample_name)
+           
+          #gate, ini, end, nb_point, waiting_time, instrument
 
-           #gate, ini, end, nb_point, waiting_time, instrument
-  data=do1d(V_dot, -1, 1, 20, .1, dmm_CS2_curr , write_period=.1, do_plot=True, 
-          measurement_name='link_test', show_progress=True, use_threads=True,)
+  data=do1d(V_CS, -4, 2, 50, .1, dmm_CS2_curr , write_period=.1, do_plot=True, 
+          measurement_name='Link_test_CS2', show_progress=True, use_threads=True,)
+
+.. image::  image/1D.PNG
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
+   :alt: alternate text
+   :align: center
 
 
 If you want to fit for the ohmics: 
 
 .. code-block:: python
 
-   dataset=load_by_run_spec(captured_run_id=2)  #put the id of your measurement 
-   # plt.figure()
-   x=dataset.get_parameter_data()['CS2_current']['QD_Bias']*1e-3  #if you don't know the name run just in a cell dataset 
-   y=dataset.get_parameter_data()['CS2_current']['CS2_current']
-   m, b = np. polyfit(x, y, 1) 
-   print('Resistance: %.2f kOhm' % (1/m*1e-3))
-   print(b)
-   plt.plot(x*1e3, y*1e9,'.')
-   plt.plot(x*1e3, (b+m*x)*1e9)
-   plt.xlabel('Bias [mV]')
-   plt.ylabel('Current [nA]')
-   plt.title('Resistance: %.2f kOhm' % (1/m*1e-3))
+  dataset=load_by_run_spec(captured_run_id=14)
+  # plt.figure()
+  x=dataset.get_parameter_data()['QD_CS1']['QD_Bias']*1e-3 # x is in mV
+  y=dataset.get_parameter_data()['QD_CS1']['QD_CS1']
+  m, b = np. polyfit(x, y, 1) 
+  print('Resistance: %.2f kOhm' % (1/m*1e-3))
+  print(b)
+  plt.plot(x*1e3, y*1e9,'.') 
+  plt.plot(x*1e3, (b+m*x)*1e9)
+  plt.xlabel('Bias [mV]')
+  plt.ylabel('Current [nA]')
+  plt.title('Resistance: %.2f kOhm' % (1/m*1e-3))
       
       
 2D measurement
@@ -110,7 +118,7 @@ Background top of the peak
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The first option is to repeat the background 0A measurement but fix the plunger to be on the top of the peak. 
-Or you can first measure the peak then start a measurement that will stop when the maximum is reach 
+Or you can first measure the peak and then start a measurement that will stop when the maximum is reach 
 
 .. code-block:: python
 
@@ -170,8 +178,8 @@ Once P is fixed, we can do the noise measurement
 On the slope
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One option is the do the same as being on the top of the peak but instead of findind the maximum of the current, you look for the maximum slope. 
-For getting the derivative you can use a gaussian fit (probably other methods can work).
+One option is the do the same as being on the top of the peak but instead of finding the maximum of the current, you look for the maximum slope. 
+For getting the derivative you can use a Gaussian fit (probably other methods can work).
 
 Find the max of the derivative
 
