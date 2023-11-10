@@ -41,6 +41,13 @@ If you want to fit for the ohmics:
   plt.xlabel('Bias [mV]')
   plt.ylabel('Current [nA]')
   plt.title('Resistance: %.2f kOhm' % (1/m*1e-3))
+
+.. image::  image/1D_fit.PNG
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
+   :alt: alternate text
+   :align: center
       
       
 2D measurement
@@ -49,13 +56,21 @@ If you want to fit for the ohmics:
 .. code-block:: python
 
   exp = load_or_create_experiment(experiment_name = experiment_name, sample_name = sample_name)        
-  do2d(P1, x_i,x_f,120, 0.0, P3, y_i, y_f,120, 0.0, 
-      dmm_CS1_curr,
-      show_progress=True,
-      do_plot=True,
-      exp=exp,
-      measurement_name='5QD',
+  do2d(
+    P1, 500, 750,100, 0, V_dot,2,-6.0,100, 0, 
+    dmm_dot_curr,
+    show_progress=True,
+    do_plot=True,
+    exp=exp,
+    measurement_name='QD1_CD',
   )
+
+.. image::  image/2D.PNG
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
+   :alt: alternate text
+   :align: center
          
 Noise measurement
 ----------------
@@ -178,7 +193,7 @@ Once P is fixed, we can do the noise measurement
 On the slope
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One option is the do the same as being on the top of the peak but instead of finding the maximum of the current, you look for the maximum slope. 
+One option is to do the same as being on the top of the peak but instead of finding the maximum of the current, you look for the maximum slope. 
 For getting the derivative you can use a Gaussian fit (probably other methods can work).
 
 Find the max of the derivative
