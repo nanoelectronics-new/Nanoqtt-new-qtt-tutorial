@@ -37,7 +37,7 @@ Programm
    qm=opx_instrument.qm # Open a quantum machine with a given configuration ready to execute a program
    job = qm.execute(prog)
 
-   #if your programm has a infinite loop: stop the program after x times
+   #if your program has an infinite loop: stop the program after x times
    time.sleep(30)  # The program will run for 30 seconds
    job.halt()
 
@@ -71,8 +71,8 @@ Programm
 
 
 .. image:: image/ex_opx_simulation.PNG
-   :width: 500px
-   :height: 250px
+   :width: 300px
+   :height: 200px
    :scale: 100 %
    :alt: alternate text
    :align: center
@@ -80,7 +80,7 @@ Programm
       
 Qcodes measurement
 ----------------
-If you want to do sweep other parameter than opx via qcode, you need first to create a function that return the qua program and then do the qcodes measurement. The qcodes measurement change the sweeping parameter, run the qua program inner the infinite loop, break it at the pause then change again the external parameter,...
+If you want to sweep other parameters than opx via qcode, you need first to create a function that returns the qua program and then do the qcodes measurement. The qcodes measurement changes the sweeping parameter, runs the qua program inner the infinite loop, breaks it at the pause then change again the external parameter,...
 
 
 OD QUA
@@ -137,17 +137,17 @@ Then we do the measurement, it can be a 1d or 2d measurement
 That will give you I,Q, R and Phase
 
 .. image:: image/exp_opx_0d.PNG
-   :width: 100px
-   :height: 50px
-   :scale: 40 %
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 1D QUA
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to sweep an OPX parameter.
-Example for a frequency sweep
+Example of a frequency sweep
 
 .. code-block:: python
 
@@ -205,11 +205,11 @@ That will give you I,Q, R and Phase
 
 
 .. image:: image/exp_opx_frequency_sweep.PNG
-   :width: 100px
-   :height: 50px
-   :scale: 40 %
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 
 
@@ -219,14 +219,14 @@ Calibration
 Time of flight
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You need to calibrate the time of flight i.e. the time that the signal need to reach back the opx. 
-For that you will need to send a wave and measure it, look at the raw data the see from wich time you start seing the oscillation. 
+You need to calibrate the time of flight i.e. the time that the signal needs to reach back the opx. 
+For that, you will need to send a wave and measure it, look at the raw data to see from which time you start seeing the oscillation. 
 
-Example (probably not the most straight forward):
+Example (probably not the most straightforward):
 
 .. code-block:: python
 
-   #define dummy parameter to be able to use qcodes function
+   #define a dummy parameter to be able to use qcodes function
 
    from qcodes import Parameter
    class MyCounter(Parameter):
@@ -282,7 +282,7 @@ Example (probably not the most straight forward):
        exp=exp,
    )
 
-Plot in an nicer way
+Plot in a nicer way
 
 .. code-block:: python
    dataset=load_by_run_spec(captured_run_id=15)
@@ -298,14 +298,14 @@ Plot in an nicer way
    plt.ylabel('raw data (V)')
 
 .. image:: image/opx_calibration_tof.PNG
-   :width: 100px
-   :height: 50px
-   :scale: 40 %
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 
-I tried that but it doesn't work (don't finished)
+I tried that but it doesn't work (don't finish)
 
 .. code-block:: python
 
