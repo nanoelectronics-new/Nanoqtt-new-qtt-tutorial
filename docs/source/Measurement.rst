@@ -92,18 +92,18 @@ Background 0A
   data=do0d(dmm_dot.timetrace, write_period=0.1, do_plot=True,measurement_name='background')
 
 .. image::  image/noise_bg.PNG
-   :width: 200px
-   :height: 100px
-   :scale: 50 %
+   :width: 450px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 .. image::  image/noise_trace.PNG
-   :width: 200px
-   :height: 100px
-   :scale: 50 %
+   :width: 450px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 
 Background top of the peak
