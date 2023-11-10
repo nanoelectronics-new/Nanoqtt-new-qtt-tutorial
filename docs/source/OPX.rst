@@ -298,8 +298,8 @@ Plot in a nicer way
    plt.ylabel('raw data (V)')
 
 .. image:: image/opx_calibration_tof.PNG
-   :width: 300px
-   :height: 200px
+   :width: 600px
+   :height: 300px
    :scale: 100 %
    :alt: alternate text
    :align: center
