@@ -147,11 +147,11 @@ Or you can first measure the peak then start a measurement that will stop when t
   axs, cbs = plot_dataset(dataset)
 
 .. image:: image/noise_top.PNG
- :width: 200px
- :height: 100px
- :scale: 50 %
- :alt: alternate text
- :align: right
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
+   :alt: alternate text
+   :align: center
 
 Once P is fixed, we can do the noise measurement
 
@@ -209,11 +209,11 @@ Find the max of the derivative
   print(max_slop)
 
 .. image:: image/noise_deriv.PNG
-   :width: 200px
-   :height: 100px
-   :scale: 50 %
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 Go on the max of the derivative
 
@@ -236,11 +236,11 @@ Go on the max of the derivative
   axs, cbs = plot_dataset(dataset)
 
 .. image:: image/noise_slope.PNG
-   :width: 200px
-   :height: 100px
-   :scale: 50 %
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 
 Do the noise measurement
@@ -278,11 +278,11 @@ Another method is to use a linear fit on a small part of the peak
   print(m) #is the slope 
 
 .. image::  image/noise_linear.PNG
-   :width: 200px
-   :height: 100px
-   :scale: 50 %
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 Do the measurement
 
@@ -330,11 +330,11 @@ For the power spectral density:
   plt.ylabel('$S_\mathrm{I}$ [A$^2$/Hz]')
 
 .. image:: image/noise_psd.PNG
-   :width: 200px
-   :height: 100px
-   :scale: 50 %
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 Noise:
 
@@ -348,11 +348,11 @@ Noise:
   plt.ylabel(r'$S_\mathrm{E}$ [eV$^2$/Hz]')
 
 .. image::  image/noise_noise.PNG
-   :width: 200px
-   :height: 100px
-   :scale: 50 %
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
 
 Fit:
 
@@ -378,11 +378,11 @@ Fit:
   print(popt[1])
 
 .. image::  image/noise_fit.PNG
-   :width: 200px
-   :height: 100px
-   :scale: 50 %
+   :width: 300px
+   :height: 200px
+   :scale: 100 %
    :alt: alternate text
-   :align: right
+   :align: center
    
 
   
