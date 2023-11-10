@@ -92,14 +92,14 @@ Background 0A
   data=do0d(dmm_dot.timetrace, write_period=0.1, do_plot=True,measurement_name='background')
 
 .. image::  image/noise_bg.PNG
-   :width: 400px
+   :width: 300px
    :height: 200px
    :scale: 100 %
    :alt: alternate text
    :align: center
 
 .. image::  image/noise_trace.PNG
-   :width: 400px
+   :width: 300px
    :height: 200px
    :scale: 100 %
    :alt: alternate text
