@@ -18,9 +18,7 @@ Contents
    Qcodes_start
    Measurement
    OPX
-   UHFLI
+   Reflectometry
    Data
-   Nanoqtt_start
-   api
    useful
    
