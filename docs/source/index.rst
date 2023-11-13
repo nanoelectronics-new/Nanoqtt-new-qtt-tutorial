@@ -1,7 +1,5 @@
-Welcome to Nanoqtt's documentation!
+Qcodes documentation (for spin qubit)
 ===================================
-
-It is based on qtt. 
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.
@@ -14,7 +12,7 @@ Contents
 --------
 
 .. toctree::
-
+   Installation
    Qcodes_start
    Measurement
    OPX
