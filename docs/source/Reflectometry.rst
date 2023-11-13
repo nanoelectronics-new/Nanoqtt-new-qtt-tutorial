@@ -10,6 +10,7 @@ Documentation
 Demodulation: https://docs.quantum-machines.co/1.1.5/qm-qua-sdk/docs/Guides/demod/?h=demo
 
 Fast scan: https://github.com/qua-platform/qua-libs/tree/main/Quantum-Control-Applications/Quantum-Dots/Use%20Case%201%20-%20Fast%202D%20Scans
+
 https://github.com/qua-platform/py-qua-tools/tree/main/examples/Qcodes_drivers/stability-diagram
 
 Simulation
@@ -222,7 +223,7 @@ Measurement
        exp=exp,
    )
 
-.. image:: image/opti_freq.PNG
+.. image:: image/freq_opti.PNG
    :width: 400px
    :height: 300px
    :scale: 100 %
@@ -336,6 +337,7 @@ Impedance
 If you want to know how close you are to matching you need to calculate the impedance. 
 
 .. code-block:: python
+
    #get your Coulomb oscillation data
    dataset=load_by_run_spec(captured_run_id=274)
    x=dataset.get_parameter_data()['CS1_current']['CS1_P']
